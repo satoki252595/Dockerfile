@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 # 必要そうなものをinstall
-RUN apt-get update && apt-get install -y --no-install-recommends wget build-essential libreadline-dev \ 
+RUN apt-get update && apt-get install -y --no-install-recommends wget build-essential libreadline-dev vim \ 
     libncursesw5-dev libssl-dev libsqlite3-dev libgdbm-dev libbz2-dev liblzma-dev zlib1g-dev uuid-dev libffi-dev libdb-dev
 
 #任意バージョンのpython install
@@ -17,6 +17,9 @@ RUN apt-get autoremove -y
 
 #必要なpythonパッケージをpipでインストール
 RUN pip3 install --upgrade pip && pip3 install firebase_admin yfinance xlrd
+
+#/src配下を
+VOLUME /src
 
 
 
